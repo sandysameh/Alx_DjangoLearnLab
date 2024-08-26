@@ -31,5 +31,5 @@ for book in books_in_library:
     print(f'- {book.title}')
 
 # Query 3: Retrieve the librarian for a library
-librarian = Librarian.objects.get(library__name=library_name)
+librarian = Librarian.objects.get(library=library_name)
 print(f'Librarian of {library_name}: {librarian.name}')
