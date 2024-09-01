@@ -42,23 +42,23 @@ def register(request):
     # This ensures that the form is rendered again if it's a GET request or if the form is invalid.
     return render(request, 'relationship_app/register.html', {'form': form})
 
-def is_admin(user):
+def Admin(user):
     return user.is_authenticated and user.profile.role == 'Admin'
 
-def is_librarian(user):
+def Librarian(user):
     return user.is_authenticated and user.profile.role == 'Librarian'
 
-def is_member(user):
+def Member(user):
     return user.is_authenticated and user.profile.role == 'Librarian'
 
-@user_passes_test(is_admin)
-def Admin(request):
+@user_passes_test(Admin)
+def AdminView(request):
     return HttpResponse("Welcome to the Admin view")
 
-@user_passes_test(is_librarian)
-def Librarian(request):
+@user_passes_test(Librarian)
+def LibrarianView(request):
     return HttpResponse("Welcome to the Librarian view")
 
-@user_passes_test(is_member)
-def Member(request):
+@user_passes_test(Member)
+def MemberView(request):
     return HttpResponse("Welcome to the Member view")
