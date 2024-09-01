@@ -12,9 +12,9 @@ urlpatterns = [
         path('logout/',LogoutView.as_view(template_name="relationship_app/logout.html"),name="logout"),
 
     path('register/',views.register,name="register"),
-    path('admin/',views.Admin,name="admin_view"),
-    path('librarian/',views.Librarian,name="librarian_view"),
-        path('member/', views.Member, name='member_view'),
+    path('admin/',views.Admin,name="Admin"),
+    path('librarian/',views.Librarian,name="Librarian"),
+        path('member/', views.Member, name='Member'),
 
     
     ]
