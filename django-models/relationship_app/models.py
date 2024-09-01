@@ -13,7 +13,12 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)   
     author = models.ForeignKey(Author,on_delete=models.CASCADE,related_name='books') 
-
+    class Meta:
+        permissions = [
+            ("can_add_book", "can_add_book"),
+            ("can_change_book", "can_change_book"),
+            ("can_delete_book", "can_delete_book"),
+        ]
     def __str__(self):
         return self.title
 
@@ -51,6 +56,3 @@ def create_user_profile(sender,instance,created,**kwargs):
     if created:
         UserProfile.objects.create(user=instance)
 
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
