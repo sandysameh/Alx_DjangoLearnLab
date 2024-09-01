@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import list_books
-from .views import LibraryDetailView,LoginView,LogoutView,register
+from .views import LibraryDetailView,LoginView,LogoutView
+from . import views  # Import all views in a single line
 
 
 urlpatterns = [
@@ -10,7 +11,7 @@ urlpatterns = [
 
         path('logout/',LogoutView.as_view(template_name="relationship_app/logout.html"),name="logout"),
 
-    path('register/',register,name="register"),
+    path('register/',views.register,name="register"),
 
     
     ]
