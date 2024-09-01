@@ -52,13 +52,13 @@ def is_member(user):
     return user.is_authenticated and user.profile.role == 'Librarian'
 
 @user_passes_test(is_admin)
-def AdminView(request):
+def Admin(request):
     return HttpResponse("Welcome to the Admin view")
 
 @user_passes_test(is_librarian)
-def LibrarianView(request):
+def Librarian(request):
     return HttpResponse("Welcome to the Librarian view")
 
 @user_passes_test(is_member)
-def MemberView(request):
+def Member(request):
     return HttpResponse("Welcome to the Member view")
