@@ -43,13 +43,13 @@ def register(request):
     return render(request, 'relationship_app/register.html', {'form': form})
 
 def Admin(user):
-    return user.is_authenticated and user.profile.role == 'Admin'
+    return user.is_authenticated and user.role == 'Admin'
 
 def Librarian(user):
-    return user.is_authenticated and user.profile.role == 'Librarian'
+    return user.is_authenticated and user.role == 'Librarian'
 
 def Member(user):
-    return user.is_authenticated and user.profile.role == 'Librarian'
+    return user.is_authenticated and user.role == 'Librarian'
 
 @user_passes_test(Admin)
 def AdminView(request):
