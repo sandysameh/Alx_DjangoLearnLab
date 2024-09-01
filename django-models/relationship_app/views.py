@@ -21,10 +21,10 @@ class LibraryDetailView(DetailView):
     template_name = 'relationship_app/library_detail.html'
     context_object_name='library'
 
-class CustomLoginView(views.LoginView):
+class LoginView(views.LoginView):
     template_name="relationship_app/login.html"
 
-class CustomLogoutView(views.LogoutView):
+class LogoutView(views.LogoutView):
     template_name= 'relationship_app/logout.html'
 
 def register(request):
